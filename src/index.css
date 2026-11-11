@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-ink: 245 245 243; --c-panel: 255 255 255; --c-card: 255 255 255;
+  --c-line: 224 224 220; --c-fg: 20 20 20; --c-muted: 110 110 105;
+  --c-lime: 101 163 13; --c-lime-ink: 255 255 255;
+}
+.dark {
+  --c-ink: 10 10 10; --c-panel: 17 17 17; --c-card: 24 24 24;
+  --c-line: 38 38 38; --c-fg: 245 245 245; --c-muted: 140 140 140;
+  --c-lime: 190 242 100; --c-lime-ink: 10 10 10;
+}
+html, body, #root { height: 100%; }
+body { @apply bg-ink text-fg font-sans antialiased; }
+@layer components {
+  .chip { @apply inline-flex items-center rounded-full border border-line px-3 py-1.5 text-xs text-muted transition hover:text-fg hover:border-muted whitespace-nowrap; }
+  .chip-on { @apply bg-fg text-ink border-fg hover:text-ink hover:border-fg; }
+  .tag { @apply rounded-md bg-ink px-2 py-0.5 text-[11px] text-muted border border-line; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-card px-3 py-2 text-sm transition hover:border-muted; }
+  .btn-lime { @apply bg-lime text-lime-ink border-lime font-medium hover:opacity-90 hover:border-lime; }
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--c-line)); border-radius: 8px; }
